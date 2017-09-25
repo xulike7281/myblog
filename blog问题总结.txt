@@ -1,0 +1,29 @@
+后台 功能:
+	文章管理: 文章列表页 分页 排序 文章的增删改
+	分类管理: 列表页  排序 增删改
+	用户认证: 用户注册 登录 注销 用户权限校验
+前台功能:
+	基于bootstrap
+	导航
+	文章列表 
+	文章详情: 评论 分页 点赞 
+技术:
+	数据库
+		mongodb mongoose库(定义所有的数据的结构)
+	后端开发
+		node.js
+		express (后端框架)
+		jade(基于node的后端模板引擎)
+		validator(后台数据验证)
+		session(数据缓存)
+		passport(是Nodejs中的一个做登录验证的中间件,极其灵活和模块化，并且可与Express、Sails等Web框架无缝集成。Passport功能单一，即只能做登录验证，但非常强大，支持本地账号验证和第三方账号登录验证（OAuth和OpenID等），支持大多数Web网站和服务。)
+	前端:
+		bootstrap(UI库)
+		Validate(前端表单验证)
+		font awesome(字体图标库)
+工程工具:
+	NPM(下载项目需要的插件框架库)
+	Bower
+	Gulp(减少重复操作,实现热更新)
+	Yoman(脚手架,生成整个目录结构)
+	

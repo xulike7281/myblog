@@ -1,0 +1,103 @@
+extends ../layout
+
+append css
+    link(rel='stylesheet', href='/components/font-awesome-4.7.0/css/font-awesome.css')
+    link(rel='stylesheet', href='/css/blog.css')
+block main
+    block header
+        nav#nav.navbar.navbar-inverse
+            .container-fluid
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    span.icon_blog.glyphicon.glyphicon-sound-dolby
+                    a.navbar-brand(href="#") 徐伟的博客
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        if pageName ==="/"
+                            li.active
+                                a(href="/") 首页
+                                    span.sr-only (current)
+                        else
+                            li
+                                a(href="/") 首页
+                                    span.sr-only (current)
+                        if pageName ==="/user"
+                            li.active
+                                a(href="dynamic") 个人动态
+                        else
+                            li
+                                a(href="dynamic") 个人动态
+                        if pageName ==="/share"
+                            li.active
+                                a(href="/share") 技术分享
+                        else
+                            li
+                                a(href="/share") 技术分享
+                    ul.nav.navbar-nav.navbar-right
+                        if  pageName ==="/about"
+                            li.active
+                                a(href="/about") 关于我
+                        else
+                            li
+                                a(href="/about") 关于我
+                        if pageName ==="/admin"
+                            li.active
+                                a(href="/admin/users/login") 管理
+                        else
+                            li
+                                a(href="/admin/users/login") 管理
+                        if  pageName ==="/contact"
+                            li.active
+                                a(href="/contact") 联系
+                        else
+                            li
+                                a(href="/contact") 联系
+
+
+    .container
+        .row
+            .col-sm-8.blog-main
+                block content
+            .col-sm-3.col-sm-offset-1.blog-sidebar
+                .sidebar-module.sidebar-module-inset
+                    h4 关于
+                    p
+                        | Etiam porta
+                        em sem malesuada magna
+                        |  mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
+                        |             lacinia bibendum nulla sed consectetur.
+                .sidebar-module
+                    h4 文章分类
+                    ol.list-unstyled
+                        each category in categories
+                            li
+                                a(href="/posts/category/" + category.name, target="_blank")
+                                    = category.name
+
+                .sidebar-module
+                    h4 友情链接
+                    ol.list-unstyled
+                        li
+                            a(href="https://github.com/",target="_blank") GitHub
+                        li
+                            a(href="http://www.tui-te.com/",target="_blank") Twitter
+                        li
+                            a(href="http://www.lianpula.net/",target="_blank") Facebook
+
+    block footer
+        footer.blog-footer
+            p
+                | 联系邮箱：
+                a(href="mailto:xuwei7281@163.com")
+                    span.social.fa.fa-envelope-o
+                    | xuwei7281@163.com
+            p
+                a(href="#") 回到顶部 &nbsp;&nbsp;&nbsp;
+                a(href="/admin/users/login") 用户登录 &nbsp;&nbsp;&nbsp;
+                a(href="/admin/users/register") 用户注册
